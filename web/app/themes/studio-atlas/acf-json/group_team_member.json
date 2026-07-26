@@ -1,0 +1,45 @@
+{
+    "key": "group_team_member_details",
+    "title": "Membre de l'\u00e9quipe \u2014 D\u00e9tails",
+    "fields": [
+        {
+            "key": "field_team_member_role",
+            "label": "Poste",
+            "name": "role",
+            "type": "text",
+            "instructions": "Intitul\u00e9 du poste occup\u00e9 dans l'agence.",
+            "required": 1,
+            "default_value": ""
+        },
+        {
+            "key": "field_team_member_short_bio",
+            "label": "Bio courte",
+            "name": "short_bio",
+            "type": "textarea",
+            "instructions": "2-3 phrases maximum, affich\u00e9es dans le bloc \u00e9quipe.",
+            "required": 0,
+            "maxlength": 280,
+            "rows": 3,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_member"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Champs ACF du CPT TeamMember (studio-atlas). G\u00e9r\u00e9 via Local JSON.",
+    "show_in_rest": 0,
+    "modified": 1732000000
+}

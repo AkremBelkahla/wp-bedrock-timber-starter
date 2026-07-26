@@ -1,0 +1,77 @@
+{
+    "key": "group_project_details",
+    "title": "R\u00e9alisation \u2014 D\u00e9tails",
+    "fields": [
+        {
+            "key": "field_project_gallery",
+            "label": "Galerie",
+            "name": "gallery",
+            "type": "gallery",
+            "instructions": "Photos du projet r\u00e9alis\u00e9.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_project_client",
+            "label": "Client",
+            "name": "client",
+            "type": "text",
+            "instructions": "Nom du client ou de l'enseigne.",
+            "required": 0,
+            "default_value": ""
+        },
+        {
+            "key": "field_project_year",
+            "label": "Ann\u00e9e",
+            "name": "year",
+            "type": "number",
+            "instructions": "Ann\u00e9e de livraison du projet.",
+            "required": 0,
+            "min": 1990,
+            "max": 2100,
+            "step": 1
+        },
+        {
+            "key": "field_project_description",
+            "label": "Description",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "Description d\u00e9taill\u00e9e du projet.",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Champs ACF du CPT Project (studio-atlas). G\u00e9r\u00e9 via Local JSON, ne pas modifier depuis l'admin en production.",
+    "show_in_rest": 0,
+    "modified": 1732000000
+}

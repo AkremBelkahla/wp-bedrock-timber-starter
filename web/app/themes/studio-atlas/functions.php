@@ -16,12 +16,15 @@
 
 namespace StudioAtlas;
 
+use StudioAtlas\Support\AcfJsonSync;
 use StudioAtlas\Support\Assets;
 use StudioAtlas\Support\TimberContext;
 
 if (!defined('ABSPATH')) {
     exit;
 }
+
+AcfJsonSync::register();
 
 add_action('after_setup_theme', static function (): void {
     add_theme_support('title-tag');

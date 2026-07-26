@@ -1,0 +1,289 @@
+{
+    "key": "group_page_builder",
+    "title": "Page Builder \u2014 Contenu flexible",
+    "fields": [
+        {
+            "key": "field_flexible_content",
+            "label": "Contenu de la page",
+            "name": "flexible_content",
+            "type": "flexible_content",
+            "instructions": "Chaque bloc ajout\u00e9 ici correspond \u00e0 une classe StudioAtlas\\Blocks\\* et \u00e0 une vue views/blocks/*.twig.",
+            "required": 0,
+            "layouts": {
+                "layout_hero": {
+                    "key": "layout_hero",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_hero_title",
+                            "label": "Titre",
+                            "name": "title",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_hero_subtitle",
+                            "label": "Sous-titre",
+                            "name": "subtitle",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_hero_background_image",
+                            "label": "Image de fond",
+                            "name": "background_image",
+                            "type": "image",
+                            "return_format": "array",
+                            "preview_size": "large"
+                        },
+                        {
+                            "key": "field_hero_cta_label",
+                            "label": "Texte du bouton",
+                            "name": "cta_label",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_cta_url",
+                            "label": "Lien du bouton",
+                            "name": "cta_url",
+                            "type": "url"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_project_grid": {
+                    "key": "layout_project_grid",
+                    "name": "project_grid",
+                    "label": "Grille de projets",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_project_grid_title",
+                            "label": "Titre de section",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_project_grid_selection_mode",
+                            "label": "Mode de s\u00e9lection",
+                            "name": "selection_mode",
+                            "type": "button_group",
+                            "choices": {
+                                "automatic": "Automatique (derni\u00e8res r\u00e9alisations)",
+                                "manual": "Manuelle"
+                            },
+                            "default_value": "automatic"
+                        },
+                        {
+                            "key": "field_project_grid_count",
+                            "label": "Nombre de projets",
+                            "name": "count",
+                            "type": "number",
+                            "default_value": 3,
+                            "min": 1,
+                            "max": 12,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_project_grid_selection_mode",
+                                        "operator": "==",
+                                        "value": "automatic"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_project_grid_projects",
+                            "label": "Projets s\u00e9lectionn\u00e9s",
+                            "name": "projects",
+                            "type": "relationship",
+                            "post_type": [
+                                "project"
+                            ],
+                            "return_format": "object",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_project_grid_selection_mode",
+                                        "operator": "==",
+                                        "value": "manual"
+                                    }
+                                ]
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_testimonials": {
+                    "key": "layout_testimonials",
+                    "name": "testimonials",
+                    "label": "T\u00e9moignages",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_testimonials_title",
+                            "label": "Titre de section",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_testimonials_items",
+                            "label": "T\u00e9moignages",
+                            "name": "items",
+                            "type": "repeater",
+                            "layout": "block",
+                            "button_label": "Ajouter un t\u00e9moignage",
+                            "sub_fields": [
+                                {
+                                    "key": "field_testimonial_quote",
+                                    "label": "Citation",
+                                    "name": "quote",
+                                    "type": "textarea",
+                                    "required": 1,
+                                    "rows": 3
+                                },
+                                {
+                                    "key": "field_testimonial_author",
+                                    "label": "Auteur",
+                                    "name": "author",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_testimonial_role",
+                                    "label": "Poste",
+                                    "name": "role",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_contact_cta": {
+                    "key": "layout_contact_cta",
+                    "name": "contact_cta",
+                    "label": "CTA de contact",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_contact_cta_title",
+                            "label": "Titre",
+                            "name": "title",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_contact_cta_text",
+                            "label": "Texte",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_contact_cta_label",
+                            "label": "Texte du bouton",
+                            "name": "cta_label",
+                            "type": "text",
+                            "default_value": "Nous contacter"
+                        },
+                        {
+                            "key": "field_contact_cta_url",
+                            "label": "Lien du bouton",
+                            "name": "cta_url",
+                            "type": "url",
+                            "instructions": "Laisser vide pour pointer vers le formulaire de contact (/contact)."
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_client_logos": {
+                    "key": "layout_client_logos",
+                    "name": "client_logos",
+                    "label": "Logos clients",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_client_logos_title",
+                            "label": "Titre de section",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_client_logos_logos",
+                            "label": "Logos",
+                            "name": "logos",
+                            "type": "repeater",
+                            "layout": "table",
+                            "button_label": "Ajouter un logo",
+                            "sub_fields": [
+                                {
+                                    "key": "field_client_logo_image",
+                                    "label": "Logo",
+                                    "name": "logo",
+                                    "type": "image",
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_team_section": {
+                    "key": "layout_team_section",
+                    "name": "team_section",
+                    "label": "Section \u00e9quipe",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_team_section_title",
+                            "label": "Titre de section",
+                            "name": "title",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_team_section_members",
+                            "label": "Membres",
+                            "name": "members",
+                            "type": "relationship",
+                            "post_type": [
+                                "team_member"
+                            ],
+                            "return_format": "object"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Ajouter un bloc"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Page builder ACF Flexible Content de Studio Atlas \u2014 6 blocs versionn\u00e9s. Voir README > 'ACF Local JSON'.",
+    "show_in_rest": 0,
+    "modified": 1732000000
+}

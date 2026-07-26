@@ -1,0 +1,20 @@
+.testimonial {
+    margin: 0;
+
+    &__quote {
+        font-size: 1.25rem;
+        font-style: italic;
+        margin: 0 0 1rem;
+    }
+
+    &__author {
+        display: flex;
+        gap: 0.5rem;
+        font-weight: bold;
+    }
+
+    &__role {
+        font-weight: normal;
+        color: #666;
+    }
+}

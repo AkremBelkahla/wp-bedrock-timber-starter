@@ -1,0 +1,16 @@
+.team-member-card {
+    text-align: center;
+
+    &__photo {
+        border-radius: 50%;
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
+        margin: 0 auto 1rem;
+    }
+
+    &__role {
+        color: #666;
+        margin: 0.25rem 0;
+    }
+}

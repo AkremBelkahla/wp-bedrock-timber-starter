@@ -1,0 +1,10 @@
+.block-testimonials {
+    padding: 3rem 2rem;
+    background: #f7f7f7;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 2rem;
+    }
+}

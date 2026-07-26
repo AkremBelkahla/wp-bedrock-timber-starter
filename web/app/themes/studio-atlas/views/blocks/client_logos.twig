@@ -1,0 +1,4 @@
+<section class="block-client-logos">
+    {% if title %}<h2 class="block-client-logos__title">{{ title }}</h2>{% endif %}
+    {% include 'components/LogoGrid.twig' with { logos: logos } %}
+</section>

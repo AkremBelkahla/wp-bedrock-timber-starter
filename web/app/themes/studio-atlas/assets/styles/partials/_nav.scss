@@ -1,0 +1,11 @@
+.nav {
+    &__list {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+}

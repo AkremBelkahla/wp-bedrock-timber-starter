@@ -1,0 +1,8 @@
+<section class="block-team-section">
+    {% if title %}<h2 class="block-team-section__title">{{ title }}</h2>{% endif %}
+    <ul class="block-team-section__list">
+        {% for member in members %}
+            <li>{% include 'components/TeamMemberCard.twig' with { member: member } %}</li>
+        {% endfor %}
+    </ul>
+</section>

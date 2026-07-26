@@ -1,0 +1,28 @@
+{% extends 'pages/base.twig' %}
+
+{% block content %}
+    <article class="single-project">
+        <header class="single-project__header">
+            <h1 class="single-project__title">{{ post.title }}</h1>
+            <ul class="single-project__meta">
+                {% if project.client %}<li>{{ project.client }}</li>{% endif %}
+                {% if project.year %}<li>{{ project.year }}</li>{% endif %}
+                {% for category in project.categories %}<li>{{ category.name }}</li>{% endfor %}
+            </ul>
+        </header>
+
+        {% if project.description %}
+            <div class="single-project__description">{{ project.description }}</div>
+        {% endif %}
+
+        {% if project.gallery %}
+            <ul class="single-project__gallery">
+                {% for image in project.gallery %}
+                    <li class="single-project__gallery-item">
+                        <img src="{{ image.src }}" alt="{{ image.alt }}" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </article>
+{% endblock %}

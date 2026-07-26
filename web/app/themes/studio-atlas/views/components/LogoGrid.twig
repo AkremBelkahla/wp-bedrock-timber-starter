@@ -1,0 +1,7 @@
+<ul class="logo-grid">
+    {% for logo in logos %}
+        <li class="logo-grid__item">
+            <img src="{{ logo.src }}" alt="" loading="lazy" width="{{ logo.width }}" height="{{ logo.height }}">
+        </li>
+    {% endfor %}
+</ul>

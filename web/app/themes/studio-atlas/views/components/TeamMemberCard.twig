@@ -1,0 +1,8 @@
+<article class="team-member-card">
+    {% if member.thumbnail %}
+        <img class="team-member-card__photo" src="{{ member.thumbnail.src }}" alt="{{ member.title }}" loading="lazy" width="{{ member.thumbnail.width }}" height="{{ member.thumbnail.height }}">
+    {% endif %}
+    <h3 class="team-member-card__name">{{ member.title }}</h3>
+    {% if member.extra.role %}<p class="team-member-card__role">{{ member.extra.role }}</p>{% endif %}
+    {% if member.extra.short_bio %}<p class="team-member-card__bio">{{ member.extra.short_bio }}</p>{% endif %}
+</article>

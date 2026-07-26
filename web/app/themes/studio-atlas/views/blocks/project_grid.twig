@@ -1,0 +1,8 @@
+<section class="block-project-grid">
+    {% if title %}<h2 class="block-project-grid__title">{{ title }}</h2>{% endif %}
+    <ul class="block-project-grid__list">
+        {% for project in projects %}
+            <li>{% include 'components/ProjectCard.twig' with { project: project } %}</li>
+        {% endfor %}
+    </ul>
+</section>

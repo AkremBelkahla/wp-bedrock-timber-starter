@@ -1,0 +1,8 @@
+<article class="project-card">
+    <a class="project-card__link" href="{{ project.link }}">
+        {% if project.thumbnail %}
+            <img class="project-card__image" src="{{ project.thumbnail.src }}" alt="{{ project.title }}" loading="lazy" width="{{ project.thumbnail.width }}" height="{{ project.thumbnail.height }}">
+        {% endif %}
+        <h3 class="project-card__title">{{ project.title }}</h3>
+    </a>
+</article>

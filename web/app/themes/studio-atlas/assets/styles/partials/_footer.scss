@@ -1,0 +1,15 @@
+.site-footer {
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+        border-top: 1px solid #eee;
+        margin-top: 4rem;
+    }
+
+    &__links {
+        display: flex;
+        gap: 1rem;
+    }
+}

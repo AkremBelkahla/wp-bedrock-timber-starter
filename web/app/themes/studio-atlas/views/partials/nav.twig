@@ -1,0 +1,9 @@
+<nav class="nav" aria-label="Menu principal">
+    <ul class="nav__list">
+        {% for item in menu_primary.items %}
+            <li class="nav__item">
+                <a class="nav__link" href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

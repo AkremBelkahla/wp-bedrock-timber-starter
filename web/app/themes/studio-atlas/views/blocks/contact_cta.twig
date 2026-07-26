@@ -1,0 +1,5 @@
+<section class="block-contact-cta">
+    <h2 class="block-contact-cta__title">{{ title }}</h2>
+    {% if text %}<p class="block-contact-cta__text">{{ text }}</p>{% endif %}
+    {% include 'components/Button.twig' with { url: cta_url, label: cta_label } %}
+</section>

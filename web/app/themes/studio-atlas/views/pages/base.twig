@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}">
+<head>
+    {% include 'partials/head.twig' %}
+</head>
+<body class="{{ body_class }}">
+    {% include 'partials/header.twig' %}
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'partials/footer.twig' %}
+</body>
+</html>

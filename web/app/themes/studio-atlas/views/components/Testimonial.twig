@@ -1,0 +1,7 @@
+<figure class="testimonial">
+    <blockquote class="testimonial__quote">{{ testimonial.quote }}</blockquote>
+    <figcaption class="testimonial__author">
+        <span class="testimonial__name">{{ testimonial.author }}</span>
+        {% if testimonial.role %}<span class="testimonial__role">{{ testimonial.role }}</span>{% endif %}
+    </figcaption>
+</figure>

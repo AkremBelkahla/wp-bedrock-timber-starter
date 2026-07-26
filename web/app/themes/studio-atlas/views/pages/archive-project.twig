@@ -1,0 +1,12 @@
+{% extends 'pages/base.twig' %}
+
+{% block content %}
+    <section class="project-archive">
+        <h1 class="project-archive__title">R&eacute;alisations</h1>
+        <ul class="project-archive__grid">
+            {% for project in projects %}
+                <li>{% include 'components/ProjectCard.twig' with { project: project } %}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

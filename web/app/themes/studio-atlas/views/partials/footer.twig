@@ -1,0 +1,11 @@
+<footer class="site-footer">
+    <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; {{ "now"|date("Y") }} {{ site.name }}. Tous droits r&eacute;serv&eacute;s.</p>
+        <ul class="site-footer__links">
+            {% for item in menu_footer.items %}
+                <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</footer>
+{{ function('wp_footer') }}

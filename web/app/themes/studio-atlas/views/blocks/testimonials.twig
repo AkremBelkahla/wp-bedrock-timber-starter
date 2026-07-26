@@ -1,0 +1,8 @@
+<section class="block-testimonials">
+    {% if title %}<h2 class="block-testimonials__title">{{ title }}</h2>{% endif %}
+    <ul class="block-testimonials__list">
+        {% for testimonial in testimonials %}
+            <li>{% include 'components/Testimonial.twig' with { testimonial: testimonial } %}</li>
+        {% endfor %}
+    </ul>
+</section>

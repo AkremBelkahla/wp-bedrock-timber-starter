@@ -1,0 +1,15 @@
+.site-header {
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+    }
+
+    &__logo {
+        font-weight: bold;
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.25rem;
+    }
+}

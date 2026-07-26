@@ -1,0 +1,26 @@
+// Point d'entrée unique, compilé vers assets/dist/main.css (voir package.json).
+// Organisation en miroir de views/ : base > partials > components > blocks > pages.
+
+@import "base/reset";
+@import "base/typography";
+
+@import "partials/header";
+@import "partials/nav";
+@import "partials/footer";
+
+@import "components/hero";
+@import "components/project-card";
+@import "components/testimonial";
+@import "components/team-member-card";
+@import "components/logo-grid";
+@import "components/button";
+
+@import "blocks/project-grid";
+@import "blocks/testimonials";
+@import "blocks/contact-cta";
+@import "blocks/client-logos";
+@import "blocks/team-section";
+
+@import "pages/page";
+@import "pages/single-project";
+@import "pages/archive-project";

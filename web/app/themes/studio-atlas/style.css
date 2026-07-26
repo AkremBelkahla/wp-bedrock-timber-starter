@@ -1,0 +1,14 @@
+/*
+Theme Name: Studio Atlas
+Theme URI: https://github.com/<votre-compte>/wp-bedrock-timber-starter
+Author: Studio Atlas
+Author URI: https://github.com/<votre-compte>
+Description: Thème vitrine pour l'agence fictive Studio Atlas (architecture / design d'intérieur). Bâti sur Bedrock + Timber/Twig + ACF Flexible Content.
+Version: 1.0.0
+License: MIT
+Text Domain: studio-atlas
+
+Ce fichier ne contient volontairement AUCUN style CSS réel : il ne sert qu'à
+déclarer le thème auprès de WordPress. Tout le CSS/SCSS vit sous assets/styles/
+et est chargé via functions.php (voir src/Support/Assets.php).
+*/

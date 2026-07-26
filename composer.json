@@ -1,0 +1,72 @@
+{
+    "name": "roots/bedrock",
+    "type": "project",
+    "license": "MIT",
+    "description": "Studio Atlas — site vitrine WordPress sur-mesure construit avec Bedrock, Timber/Twig et ACF Pro (Flexible Content).",
+    "homepage": "https://github.com/<votre-compte>/wp-bedrock-timber-starter",
+    "keywords": [
+        "bedrock",
+        "roots",
+        "wordpress",
+        "timber",
+        "acf",
+        "studio-atlas"
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "roots/wordpress-core-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "composer/installers": "^2.2",
+        "vlucas/phpdotenv": "^5.6",
+        "oscarotero/env": "^2.1",
+        "roots/bedrock-autoloader": "^1.0",
+        "roots/wordpress": "^6.5",
+        "roots/wp-config": "^1.0",
+        "roots/wp-password-bcrypt": "^1.1",
+        "timber/timber": "^2.1",
+        "wpackagist-plugin/advanced-custom-fields": "^6.2",
+        "wpackagist-plugin/redis-cache": "^2.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.9",
+        "wp-coding-standards/wpcs": "^3.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "pestphp/pest": "^2.34"
+    },
+    "extra": {
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "web/wp"
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "test": "pest"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

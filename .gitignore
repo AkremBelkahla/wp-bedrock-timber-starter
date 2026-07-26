@@ -1,0 +1,32 @@
+# Bedrock / WordPress core & vendor — installés via Composer, jamais commités
+/web/wp
+/vendor
+/web/app/uploads
+/web/app/upgrade
+/web/app/plugins/*
+!/web/app/plugins/.gitkeep
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Node / build
+node_modules
+web/app/themes/studio-atlas/assets/dist
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+
+# DDEV runtime (garder config.yaml versionné)
+.ddev/.*
+.ddev/db_snapshots
+.ddev/import-db
+.ddev/traefik
+!.ddev/config.yaml
+
+# Logs
+*.log

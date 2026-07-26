@@ -1,0 +1,35 @@
+name: studio-atlas
+type: php
+docroot: web
+php_version: "8.2"
+webserver_type: nginx-fpm
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+database:
+  type: mariadb
+  version: "10.6"
+nodejs_version: "20"
+composer_root: ""
+composer_version: "2"
+web_environment:
+  - WP_ENV=development
+  - WP_HOME=https://studio-atlas.ddev.site
+  - WP_SITEURL=https://studio-atlas.ddev.site/wp
+use_dns_when_possible: true
+timezone: "Europe/Paris"
+
+# Redis en option pour le cache objet (voir README > Performance)
+# Décommenter pour l'activer : ajoute un service "redis" au projet.
+# hooks:
+#   post-start:
+#     - exec: "composer require wpackagist-plugin/redis-cache"
+
+hooks:
+  post-start:
+    - exec: "composer install"
+    - exec: "if [ ! -f web/wp-config.php ]; then echo 'wp-config.php manquant, vérifier config/application.php'; fi"
+
+web_extra_exposed_ports: []
+webimage_extra_packages: []
+dbimage_extra_packages: []

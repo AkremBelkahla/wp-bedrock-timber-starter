@@ -1,0 +1,59 @@
+name: Deploy (staging)
+
+# STUB DE DÉMONSTRATION — non exécutable en l'état.
+# Aucun serveur de staging réel n'est fourni avec ce dépôt (portfolio). Ce
+# workflow illustre néanmoins une structure de déploiement crédible :
+# build des assets, puis synchronisation rsync via SSH vers un serveur cible.
+# Pour l'activer : renseigner les secrets STAGING_HOST / STAGING_USER /
+# STAGING_SSH_KEY / STAGING_PATH dans les secrets du repo GitHub, puis
+# retirer le "if: false" ci-dessous.
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [staging]
+
+jobs:
+  deploy:
+    name: Build & rsync vers staging
+    runs-on: ubuntu-latest
+    if: false # désactivé par défaut — voir commentaire ci-dessus
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies (production, sans dev)
+        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build assets du thème
+        working-directory: web/app/themes/studio-atlas
+        run: |
+          npm install
+          npm run build
+
+      - name: Déployer via rsync + SSH
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude=".git*" --exclude="node_modules" --exclude=".env"
+          path: ./
+          remote_path: ${{ secrets.STAGING_PATH }}
+          remote_host: ${{ secrets.STAGING_HOST }}
+          remote_user: ${{ secrets.STAGING_USER }}
+          remote_key: ${{ secrets.STAGING_SSH_KEY }}
+
+      - name: Purge du cache objet (Redis) sur le serveur staging
+        if: false
+        run: |
+          ssh -i staging_key ${{ secrets.STAGING_USER }}@${{ secrets.STAGING_HOST }} \
+            "cd ${{ secrets.STAGING_PATH }} && wp cache flush --path=web/wp"

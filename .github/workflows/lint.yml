@@ -1,0 +1,86 @@
+name: Lint & Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  phpcs:
+    name: PHPCS (WPCS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache
+          key: composer-${{ hashFiles('composer.lock') }}
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run PHPCS (WordPress Coding Standards)
+        run: composer run lint
+
+  tests:
+    name: Tests unitaires (Pest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run Pest
+        run: composer run test
+
+  build-validate:
+    name: Validation du build (composer + assets)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Install PHP dependencies (sans WP core, dry validation)
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install & build theme assets
+        working-directory: web/app/themes/studio-atlas
+        run: |
+          npm install
+          npm run build
+
+      - name: Check compiled assets exist
+        run: |
+          test -f web/app/themes/studio-atlas/assets/dist/main.css
+          test -f web/app/themes/studio-atlas/assets/dist/main.js

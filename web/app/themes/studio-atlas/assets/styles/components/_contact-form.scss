@@ -1,0 +1,39 @@
+.contact-form {
+    max-width: 32rem;
+    margin: 3rem auto;
+
+    &__honeypot {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    &__field input,
+    &__field textarea {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-family: inherit;
+    }
+
+    &__feedback {
+        min-height: 1.5rem;
+
+        &.is-success {
+            color: #1a7a1a;
+        }
+
+        &.is-error {
+            color: #b00020;
+        }
+    }
+}

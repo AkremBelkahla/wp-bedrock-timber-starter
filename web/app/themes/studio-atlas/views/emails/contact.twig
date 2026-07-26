@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau message de contact — {{ site }}</title>
+</head>
+<body style="font-family: sans-serif; color: #1a1a1a;">
+    <h1 style="font-size: 1.25rem;">Nouveau message via le formulaire de contact</h1>
+    <p><strong>Nom :</strong> {{ name }}</p>
+    <p><strong>Email :</strong> {{ email }}</p>
+    <p><strong>Message :</strong></p>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <hr>
+    <p style="color: #666; font-size: 0.875rem;">Envoyé depuis {{ site }}</p>
+</body>
+</html>

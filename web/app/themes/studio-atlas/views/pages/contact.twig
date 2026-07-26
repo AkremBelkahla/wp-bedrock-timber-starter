@@ -1,0 +1,11 @@
+{% extends 'pages/base.twig' %}
+
+{% block content %}
+    <article class="page page--contact">
+        {% for block in blocks %}
+            {% include 'blocks/' ~ block.type ~ '.twig' with block.data %}
+        {% endfor %}
+
+        {% include 'components/ContactForm.twig' with { contact_form: contact_form, contact_form_action: contact_form_action } %}
+    </article>
+{% endblock %}

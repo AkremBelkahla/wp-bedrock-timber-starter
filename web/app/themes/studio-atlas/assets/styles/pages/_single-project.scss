@@ -1,0 +1,19 @@
+.single-project {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+
+    &__meta {
+        display: flex;
+        gap: 1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    &__gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+}

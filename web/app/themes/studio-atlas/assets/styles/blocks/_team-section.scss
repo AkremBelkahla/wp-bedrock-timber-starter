@@ -1,0 +1,9 @@
+.block-team-section {
+    padding: 3rem 2rem;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 2rem;
+    }
+}

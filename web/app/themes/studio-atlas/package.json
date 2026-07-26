@@ -1,0 +1,16 @@
+{
+    "name": "studio-atlas-theme",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Build des assets front (SCSS -> CSS, JS minifié) du thème Studio Atlas.",
+    "scripts": {
+        "build": "npm run build:css && npm run build:js",
+        "build:css": "sass assets/styles/main.scss assets/dist/main.css --style=compressed --no-source-map",
+        "build:js": "esbuild assets/scripts/main.js --bundle --minify --outfile=assets/dist/main.js",
+        "watch": "sass assets/styles/main.scss assets/dist/main.css --watch --style=expanded"
+    },
+    "devDependencies": {
+        "esbuild": "^0.21.0",
+        "sass": "^1.77.0"
+    }
+}

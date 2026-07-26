@@ -62,6 +62,11 @@
         },
         "wordpress-install-dir": "web/wp"
     },
+    "autoload-dev": {
+        "psr-4": {
+            "StudioAtlas\\": "web/app/themes/studio-atlas/src/"
+        }
+    },
     "scripts": {
         "lint": "phpcs",
         "lint:fix": "phpcbf",
